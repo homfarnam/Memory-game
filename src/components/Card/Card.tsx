@@ -27,7 +27,7 @@ const Card: React.FC<CardProps> = ({ item, index, whichItem, visible }) => {
         'is-flipped': visible,
         'is-inactive': !visible,
       })}>
-      <img src={item.url} alt='' className='h-[200px] w-[200px]' draggable={false} />
+      <img src={item.url} alt={item.first_name} className='h-[200px] w-[200px]' draggable={false} />
     </div>
   );
 };
