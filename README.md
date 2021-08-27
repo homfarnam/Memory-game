@@ -54,6 +54,23 @@ yarn:
 yarn build
 ```
 
+## Testing
+
+npm:
+
+```bash
+npm run test
+```
+
+
+yarn:
+
+
+```bash
+yarn test
+```
+
+
 ## API Reference
 
 For the api, I used tinyfac API.
