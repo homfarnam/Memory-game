@@ -1,0 +1,19 @@
+.card {
+  border-radius: 4px;
+  transition: 0.3s;
+  transform-style: preserve-3d;
+  position: relative;
+  cursor: pointer;
+
+  &.is-flipped {
+    transform: rotateY(180deg);
+  }
+
+  &.is-inactive {
+    opacity: 1;
+    img {
+      opacity: 0;
+    }
+    background-color: rgb(171, 171, 171);
+  }
+}
