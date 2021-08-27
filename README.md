@@ -1,22 +1,70 @@
-# cra-template-tailwindcss-typescript
 
-A streamlined [Tailwind CSS](https://tailwindcss.com) template for [Create React App](https://github.com/facebook/create-react-app) in [TypeScript](https://www.typescriptlang.org/).
+# Memory Card game
 
-> This template installs and sets up [Tailwind CSS](https://tailwindcss.com) with TypeScript support.
+This app allow you to play memory card game.
 
-## Usage
+## Demo
+
+You can see the demo here:
+ 
+
+## Installation
+
+ 
+npm:
 
 ```bash
-npx create-react-app --template tailwindcss-typescript
+npm install
 ```
 
-## Credits
+yarn:
 
-This project was made possible thanks to the following projects.
+```bash
+yarn
+```
 
-1. [GeoffSelby/cra-template-tailwindcss](https://github.com/GeoffSelby/cra-template-tailwindcss) - A streamlined Tailwind CSS template for Create React App (in JavaScript).
-2. [cra-template-typescript](https://github.com/facebook/create-react-app/tree/master/packages/cra-template-typescript) - An official TypeScript template for create-react-app.
+## Deployment
 
-## License
+To Start this project run
 
-MIT © [Sung M. Kim](https://sung.codes)
+npm:
+
+```bash
+npm run start
+```
+
+yarn:
+
+```bash
+yarn start
+```
+
+To build the project run:
+
+npm:
+
+```bash
+npm run build
+```
+
+yarn:
+
+```bash
+yarn build
+```
+
+## API Reference
+
+For the api, I used tinyfac API.
+
+#### Get TV Show details
+
+```http
+  GET https://tinyfac.es/api/data?limit=8
+```
+
+You should the response like the below image.
+
+![alt show_details](./show.png)
+
+ 
