@@ -1,69 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders learn react link renders correctly enzyme, return app to json 1`] = `
+exports[`snapshot test snapshot test Game page 1`] = `
 <div
-  className="flex flex-col h-screen w-screen items-center justify-center text-white bg-gradient-to-br from-gray-600 via-teal-700 to-gray-800"
+  className="flex flex-col min-h-screen w-full items-center justify-between text-white bg-gradient-to-br from-gray-600 via-teal-700 to-gray-800"
 >
   <header
-    className="w-full flex items-center justify-center flex-col space-y-3 my-5"
+    className="w-full flex flex-col items-center justify-center space-y-3 my-5 mx-5 px-4 text-center md:px-0 md:mx-0"
   >
-    <h3>
+    <h2
+      className="text-xl"
+    >
       Play the Flip card game
-    </h3>
-    <div>
+    </h2>
+    <span>
       Select two cards with same content consequtively to make them vanish
-    </div>
-    <div>
-      score: 
+    </span>
+    <span>
+      Score: 
       180
-    </div>
+    </span>
   </header>
   <div
-    className="container w-full h-full flex justify-center my-4"
+    className="w-full h-auto flex justify-center"
   >
     <div
-      className="grid grid-cols-2 md:grid-cols-4 col-span-4 gap-4 h-[500px]"
+      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 col-span-4 gap-4"
     />
   </div>
-  <button
-    className="mb-5 p-3 bg-blue-400 rounded-full"
-    onClick={[Function]}
-  >
-    Restart
-  </button>
 </div>
 `;
 
-exports[`renders learn react link renders correctly enzyme, return app to json, snappshot test 1`] = `
+exports[`snapshot test snapshot test Home page 1`] = `
 <div
-  className="flex flex-col h-screen w-screen items-center justify-center text-white bg-gradient-to-br from-gray-600 via-teal-700 to-gray-800"
+  className="w-full flex items-center justify-center"
 >
-  <header
-    className="w-full flex items-center justify-center flex-col space-y-3 my-5"
-  >
-    <h3>
-      Play the Flip card game
-    </h3>
-    <div>
-      Select two cards with same content consequtively to make them vanish
-    </div>
-    <div>
-      score: 
-      180
-    </div>
-  </header>
   <div
-    className="container w-full h-full flex justify-center my-4"
+    className="border p-5 flex flex-col items-center justify-between h-[400px]"
   >
-    <div
-      className="grid grid-cols-2 md:grid-cols-4 col-span-4 gap-4 h-[500px]"
-    />
+    <div>
+      <h3>
+        Click the Memory Card! Game
+      </h3>
+      <Formik
+        initialValues={
+          Object {
+            "username": "",
+          }
+        }
+        onSubmit={[Function]}
+      >
+        <Component />
+      </Formik>
+    </div>
+    <Link
+      to="/game"
+    >
+      <WithStyles(ForwardRef(Button))
+        className="absolute bottom-0"
+        color="primary"
+        disabled={true}
+        type="submit"
+        variant="contained"
+      >
+        Play!
+      </WithStyles(ForwardRef(Button))>
+    </Link>
   </div>
-  <button
-    className="mb-5 p-3 bg-blue-400 rounded-full"
-    onClick={[Function]}
-  >
-    Restart
-  </button>
 </div>
 `;
