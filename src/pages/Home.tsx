@@ -24,7 +24,9 @@ const Home = () => {
         <div>
           <h3>Click the Memory Card! Game</h3>
           {isText ? (
-            <span onClick={() => setIsText((prev) => !prev)}>Hello {user}</span>
+            <span id='user' onClick={() => setIsText((prev) => !prev)}>
+              Hello {user}
+            </span>
           ) : (
             <Formik
               initialValues={{ username: user }}
