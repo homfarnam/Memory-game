@@ -1,5 +1,4 @@
-import React from 'react';
-import { cleanup, render, screen, waitFor } from '@testing-library/react';
+import { cleanup, render } from '@testing-library/react';
 import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import toJson from 'enzyme-to-json';
@@ -7,7 +6,6 @@ import Game from './pages/Game';
 import Home from './pages/Home';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
-import userEvent from '@testing-library/user-event';
 
 Enzyme.configure({ adapter: new Adapter() });
 afterEach(cleanup);
