@@ -84,6 +84,7 @@ For the api, I used tinyfac API.
 You should get the response like the below image.
 
 ‍‍‍```json
+  {
   approved: true,
   created_at: 1627199933.924436,
   first_name: "Tailor",
@@ -93,6 +94,7 @@ You should get the response like the below image.
   source: {name: "Joshua Sisco", updated_at: 1627199913.900815, id: 69, created_at: 1627199913.900815,…},
   updated_at: 1627199933.924436,
   url: "https://res.cloudinary.com/tinyfac-es/image/upload/w_1024,h_1024,c_fit/v1627199931/facebook/fvslz3twinvrrplyzya8.jpg"
+  }
 ```
 
  
