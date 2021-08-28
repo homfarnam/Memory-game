@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core';
-import { RouteComponentProps } from 'react-router';
 import { useEffect } from 'react';
 import { Formik, Form } from 'formik';
 import { Link } from 'react-router-dom';
 
-const Home = (props: RouteComponentProps) => {
+const Home = () => {
   const initialValue = localStorage.getItem('user');
   const [user, setUser] = useState<string>(initialValue ? initialValue : '');
   const [isText, setIsText] = useState<boolean>(false);
