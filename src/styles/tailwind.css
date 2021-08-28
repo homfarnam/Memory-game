@@ -13,3 +13,20 @@
 /* Stop purging. */
 
 /* Your own custom utilities */
+
+table,
+tr,
+th,
+td {
+  border: 1px solid black !important;
+  padding: 5px;
+}
+
+th {
+  background: rgb(245, 178, 134);
+}
+
+td {
+  padding: 10px !important;
+  background: rgb(245, 139, 69);
+}
