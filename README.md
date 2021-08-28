@@ -83,7 +83,9 @@ For the api, I used tinyfac API.
 
 You should get the response like the below image.
 
-‍‍‍```javascript
+‍‍‍ 
+
+```bash
   {
   approved: true,
   created_at: 1627199933.924436,
@@ -96,5 +98,6 @@ You should get the response like the below image.
   url: "https://res.cloudinary.com/tinyfac-es/image/upload/w_1024,h_1024,c_fit/v1627199931/facebook/fvslz3twinvrrplyzya8.jpg"
   }
 ```
+
 
  
