@@ -2,7 +2,7 @@
 
 exports[`snapshot test snapshot test Game page 1`] = `
 <div
-  className="flex flex-col min-h-screen w-full items-center justify-between text-white bg-gradient-to-br from-gray-600 via-teal-700 to-gray-800"
+  className="flex flex-col min-h-screen w-full items-center justify-around text-white bg-gradient-to-br from-gray-600 via-teal-700 to-gray-800"
 >
   <header
     className="w-full flex flex-col items-center justify-center space-y-3 my-5 mx-5 px-4 text-center md:px-0 md:mx-0"
@@ -39,7 +39,7 @@ exports[`snapshot test snapshot test Home page 1`] = `
   >
     <div>
       <h3>
-        Click the Memory Card! Game
+        Click Play button to play the Memory Card! Game
       </h3>
       <Formik
         initialValues={
@@ -52,19 +52,29 @@ exports[`snapshot test snapshot test Home page 1`] = `
         <Component />
       </Formik>
     </div>
-    <Link
+    <WithStyles(ForwardRef(Button))
+      className="absolute bottom-0"
+      color="primary"
+      component={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "propTypes": Object {
+            "innerRef": [Function],
+            "onClick": [Function],
+            "replace": [Function],
+            "target": [Function],
+            "to": [Function],
+          },
+          "render": [Function],
+        }
+      }
+      disabled={true}
       to="/game"
+      type="submit"
+      variant="contained"
     >
-      <WithStyles(ForwardRef(Button))
-        className="absolute bottom-0"
-        color="primary"
-        disabled={true}
-        type="submit"
-        variant="contained"
-      >
-        Play!
-      </WithStyles(ForwardRef(Button))>
-    </Link>
+      Play!
+    </WithStyles(ForwardRef(Button))>
   </div>
 </div>
 `;
