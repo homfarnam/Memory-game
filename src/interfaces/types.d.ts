@@ -1,7 +1,7 @@
 interface IProps {
-  id: number;
-  url: string;
-  first_name: string;
+  id: number
+  url: string
+  first_name: string
 }
 
-export { IProps };
+export { IProps }

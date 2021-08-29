@@ -1,4 +1,3 @@
-
 # Memory Card game
 
 This app allow you to play memory card game.
@@ -7,11 +6,9 @@ This app allow you to play memory card game.
 
 You can see the demo here:
 https://memory-game-ivory-theta.vercel.app/
- 
 
 ## Installation
 
- 
 npm:
 
 ```bash
@@ -62,14 +59,11 @@ npm:
 npm run test
 ```
 
-
 yarn:
-
 
 ```bash
 yarn test
 ```
-
 
 ## API Reference
 
@@ -83,7 +77,7 @@ For the api, I used tinyfac API.
 
 You should get the response like the below image.
 
-‍‍‍ 
+‍‍‍
 
 ```bash
  [
@@ -99,9 +93,6 @@ You should get the response like the below image.
        url: "https://res.cloudinary.com/tinyfac-es/image/upload/w_1024,h_1024,c_fit/v1627199931/facebook/fvslz3twinvrrplyzya8.jpg"
      },
   ...
- 
+
  ]
 ```
-
-
- 

@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react"
 
 interface ScoresProps {
   usersData:
     | {
-        id: number;
-        user: string;
-        date: string;
-        score: string;
+        id: number
+        user: string
+        date: string
+        score: string
       }[]
-    | undefined;
+    | undefined
 }
 
 const Scores: React.FC<ScoresProps> = ({ usersData }) => {
@@ -34,10 +34,10 @@ const Scores: React.FC<ScoresProps> = ({ usersData }) => {
           </tbody>
         </table>
       ) : (
-        'There is no data'
+        "There is no data"
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Scores;
+export default Scores
