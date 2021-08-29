@@ -5,6 +5,10 @@ import { useEffect } from 'react';
 import { Formik, Form } from 'formik';
 import { Link } from 'react-router-dom';
 
+interface FormValues {
+  username: string;
+}
+
 const Home = () => {
   const initialValue = localStorage.getItem('user');
   const [user, setUser] = useState<string>(initialValue ? initialValue : '');
@@ -18,18 +22,22 @@ const Home = () => {
     }
   }, []);
 
+  const initialValues: FormValues = {
+    username: '',
+  };
+
   return (
     <div className='w-full flex items-center justify-center'>
       <div className='border p-5 flex flex-col items-center justify-between h-[400px]'>
         <div>
-          <h3>Click the Memory Card! Game</h3>
+          <h3>Click Play button to play the Memory Card! Game</h3>
           {isText ? (
             <span id='user' onClick={() => setIsText((prev) => !prev)}>
               Hello {user}
             </span>
           ) : (
             <Formik
-              initialValues={{ username: user }}
+              initialValues={initialValues}
               onSubmit={(values, actions) => {
                 actions.setSubmitting(true);
 
@@ -61,16 +69,17 @@ const Home = () => {
             </Formik>
           )}
         </div>
-        <Link to='/game'>
-          <Button
-            disabled={!isText}
-            className='absolute bottom-0'
-            variant='contained'
-            color='primary'
-            type='submit'>
-            Play!
-          </Button>
-        </Link>
+
+        <Button
+          disabled={!isText}
+          className='absolute bottom-0'
+          variant='contained'
+          color='primary'
+          component={Link}
+          to='/game'
+          type='submit'>
+          Play!
+        </Button>
       </div>
     </div>
   );
