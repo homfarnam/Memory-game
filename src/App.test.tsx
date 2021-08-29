@@ -31,7 +31,7 @@ describe('snapshot test', () => {
       </Router>
     );
 
-    const text = getAllByText('Click the Memory Card! Game');
+    const text = getAllByText('Click Play button to play the Memory Card! Game');
 
     expect(text).toBeTruthy();
   });
