@@ -49,8 +49,12 @@ function Game() {
   useEffect(() => {
     if (score <= 0) {
       alert('Game Over');
+
+      setTimeout(() => {
+        history.push('/score');
+      }, 300);
     }
-  }, [score]);
+  }, [score, history]);
 
   useEffect(() => {
     if (selectedCard.length === 2) {
