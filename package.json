@@ -42,13 +42,15 @@
   "scripts": {
     "start": "run-p watch:css react-scripts:start",
     "build": "run-s build:css react-scripts:build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
     "build:css": "cross-env TAILWIND_MODE=build NODE_ENV=production postcss src/styles/tailwind.css -o src/styles/index.css",
     "watch:css": "cross-env TAILWIND_MODE=watch NODE_ENV=development postcss src/styles/tailwind.css -o src/styles/index.css --watch",
     "react-scripts:start": "delay 5 && react-scripts start",
     "react-scripts:build": "react-scripts build",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "lint": "prettier --check .",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": "react-app"
