@@ -90,7 +90,7 @@ function Game() {
   }, [matchedImages, history, score]);
 
   return (
-    <div className='flex flex-col min-h-screen w-full items-center justify-between text-white bg-gradient-to-br from-gray-600 via-teal-700 to-gray-800'>
+    <div className='flex flex-col min-h-screen w-full items-center justify-around text-white bg-gradient-to-br from-gray-600 via-teal-700 to-gray-800'>
       <header className='w-full flex flex-col items-center justify-center space-y-3 my-5 mx-5 px-4 text-center md:px-0 md:mx-0'>
         <h2 className='text-xl'>Play the Flip card game</h2>
         <span>Select two cards with same content consequtively to make them vanish</span>
