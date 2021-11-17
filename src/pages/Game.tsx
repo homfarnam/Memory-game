@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react"
 import moment from "moment"
+import Loader from "react-loader-spinner"
+
 import { useHistory } from "react-router"
 import Card from "../components/Card/Card"
 import { IProps } from "../interfaces/types"
-import { shuffleImages } from "../utils/utils"
+import useFetch from "../hooks/useFetch"
+import { getUserName, shuffleImages } from "../utils/utils"
 
 function Game() {
   const [images, setImages] = useState<IProps[]>([])
@@ -12,18 +15,19 @@ function Game() {
 
   const [matchedImages, setMatchedImages] = useState<number[]>([])
 
-  const [score, setScore] = useState(180)
+  const [score, setScore] = useState<number>(180)
+
+  const { data, error, loading } = useFetch()
 
   const history = useHistory()
 
+  const username = getUserName()
+
   useEffect(() => {
-    fetch("https://tinyfac.es/api/data?limit=8")
-      .then((res) => res.json())
-      .then((data) => {
-        setImages(shuffleImages([...data, ...data]))
-      })
-      .catch((err) => console.log(err))
-  }, [])
+    if (data) {
+      setImages(shuffleImages(data))
+    }
+  }, [data])
 
   const matchImages = (i: number, j: number) => {
     if (images?.[i]?.url === images?.[j]?.url) {
@@ -65,12 +69,6 @@ function Game() {
   }, [selectedCard])
 
   useEffect(() => {
-    if (matchedImages.length === 16) {
-      alert("You Win")
-    }
-  }, [matchedImages])
-
-  useEffect(() => {
     const date = moment().format("MM/DD/YYYY")
     if (matchedImages.length === 16) {
       const user = localStorage.getItem("user")
@@ -85,36 +83,59 @@ function Game() {
       })
       localStorage.setItem("users", JSON.stringify(users))
 
+      alert("You Win")
+
       history.push("/score")
     }
   }, [matchedImages, history, score])
 
   return (
-    <div className="flex flex-col min-h-screen w-full items-center justify-around text-white bg-gradient-to-br from-gray-600 via-teal-700 to-gray-800">
+    <main className="flex flex-col min-h-screen w-full items-center justify-around text-white bg-gradient-to-br from-gray-600 via-teal-700 to-gray-800">
       <header className="w-full flex flex-col items-center justify-center space-y-3 my-5 mx-5 px-4 text-center md:px-0 md:mx-0">
-        <h2 className="text-xl">Play the Flip card game</h2>
+        <h2 className="w-full text-2xl font-medium my-5 flex items-center justify-center">
+          Hi {username}
+        </h2>
+        <h3 className="text-xl">Play the Flip card game</h3>
         <span>
           Select two cards with same content consequtively to make them vanish
         </span>
-        <span>Score: {score}</span>
+        <span className="text-lg mt-2">Score: {score}</span>
       </header>
 
-      <div className="w-full h-auto flex justify-center">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 col-span-4 gap-4">
-          {images.map((item, i) => {
-            return (
-              <Card
-                key={item.id + i}
-                item={item}
-                index={i}
-                whichItem={whichItem}
-                visible={selectedCard.includes(i) || matchedImages.includes(i)}
-              />
-            )
-          })}
-        </div>
+      <div className="w-full h-full flex justify-center">
+        {error ? (
+          <div className="w-full flex justify-center">
+            <h3 className="text-lg">{error}</h3>
+          </div>
+        ) : loading ? (
+          <div className="w-full h-full flex items-center justify-center">
+            <Loader
+              type="CradleLoader"
+              color="#00BFFF"
+              height={100}
+              width={100}
+              timeout={3000} //3 secs
+            />
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 col-span-4 gap-4">
+            {images.map((item, i) => {
+              return (
+                <Card
+                  key={item.id + i}
+                  item={item}
+                  index={i}
+                  whichItem={whichItem}
+                  visible={
+                    selectedCard.includes(i) || matchedImages.includes(i)
+                  }
+                />
+              )
+            })}
+          </div>
+        )}
       </div>
-    </div>
+    </main>
   )
 }
 
