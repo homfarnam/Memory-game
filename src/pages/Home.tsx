@@ -4,6 +4,7 @@ import { Button } from "@material-ui/core"
 import { useEffect } from "react"
 import { Formik, Form } from "formik"
 import { Link } from "react-router-dom"
+import { getAllScores } from "../utils/utils"
 
 interface FormValues {
   username: string
@@ -12,7 +13,9 @@ interface FormValues {
 const Home = () => {
   const initialValue = localStorage.getItem("user")
   const [user, setUser] = useState<string>(initialValue ? initialValue : "")
+  const [sameUser, setSameUser] = useState<boolean>(false)
   const [isText, setIsText] = useState<boolean>(false)
+  const scores = getAllScores()
 
   useEffect(() => {
     const value = localStorage.getItem("user")
@@ -21,6 +24,19 @@ const Home = () => {
       setIsText(true)
     }
   }, [])
+
+  useEffect(() => {
+    if (user && scores) {
+      const userFound = scores.filter(
+        (score: { user: string }) => score.user.toLowerCase() === user
+      )
+      if (userFound.length > 0) {
+        setSameUser(true)
+      } else {
+        setSameUser(false)
+      }
+    }
+  }, [scores, user])
 
   const initialValues: FormValues = {
     username: "",
@@ -89,7 +105,7 @@ const Home = () => {
         </div>
 
         <Button
-          disabled={!isText}
+          disabled={!isText || sameUser}
           className="absolute bottom-0"
           variant="contained"
           color="primary"
