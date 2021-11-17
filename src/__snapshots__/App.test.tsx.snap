@@ -1,33 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`snapshot test snapshot test Game page 1`] = `
-<div
+<main
   className="flex flex-col min-h-screen w-full items-center justify-around text-white bg-gradient-to-br from-gray-600 via-teal-700 to-gray-800"
 >
   <header
     className="w-full flex flex-col items-center justify-center space-y-3 my-5 mx-5 px-4 text-center md:px-0 md:mx-0"
   >
     <h2
+      className="w-full text-2xl font-medium my-5 flex items-center justify-center"
+    >
+      Hi 
+    </h2>
+    <h3
       className="text-xl"
     >
       Play the Flip card game
-    </h2>
+    </h3>
     <span>
       Select two cards with same content consequtively to make them vanish
     </span>
-    <span>
+    <span
+      className="text-lg mt-2"
+    >
       Score: 
       180
     </span>
   </header>
   <div
-    className="w-full h-auto flex justify-center"
+    className="w-full h-full flex justify-center"
   >
     <div
-      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 col-span-4 gap-4"
-    />
+      className="w-full h-full flex items-center justify-center"
+    >
+      <Loader
+        className=""
+        color="#00BFFF"
+        height={100}
+        style={Object {}}
+        timeout={3000}
+        type="CradleLoader"
+        visible={true}
+        width={100}
+      />
+    </div>
   </div>
-</div>
+</main>
 `;
 
 exports[`snapshot test snapshot test Home page 1`] = `
@@ -35,10 +53,12 @@ exports[`snapshot test snapshot test Home page 1`] = `
   className="w-full flex items-center justify-center"
 >
   <div
-    className="border p-5 flex flex-col items-center justify-between h-[400px]"
+    className="border p-5 flex flex-col items-center justify-between h-[400px] my-10 "
   >
     <div>
-      <h3>
+      <h3
+        className="flex items-center justify-center w-full text-xl font-medium"
+      >
         Click Play button to play the Memory Card! Game
       </h3>
       <Formik
