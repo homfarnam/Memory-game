@@ -5,10 +5,10 @@ import _ from "lodash"
 import ScoresTable from "../components/Scores/Scores"
 
 const Score = (props: RouteComponentProps) => {
-  const [usersData, setUsersData] =
-    useState<{ id: number; user: string; date: string; score: string }[]>()
+  const [usersData, setUsersData] = useState<
+    { id: number; user: string; date: string; score: string }[]
+  >([])
 
-  // const [usersData, setUsersData] = useState<any>();
   const history = useHistory()
 
   props.history.listen((location, action) => {
@@ -22,7 +22,6 @@ const Score = (props: RouteComponentProps) => {
 
     const sorted = _.orderBy(allUsers, "score", "desc")
 
-    console.log(sorted)
     setUsersData(sorted)
   }, [])
 
