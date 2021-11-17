@@ -8,7 +8,7 @@ interface ScoresProps {
         date: string
         score: string
       }[]
-    | undefined
+    | null
 }
 
 const Scores: React.FC<ScoresProps> = ({ usersData }) => {
