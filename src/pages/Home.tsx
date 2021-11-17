@@ -28,11 +28,17 @@ const Home = () => {
 
   return (
     <div className="w-full flex items-center justify-center">
-      <div className="border p-5 flex flex-col items-center justify-between h-[400px]">
+      <div className="border p-5 flex flex-col items-center justify-between h-[400px] my-10 ">
         <div>
-          <h3>Click Play button to play the Memory Card! Game</h3>
+          <h3 className="flex items-center justify-center w-full text-xl font-medium">
+            Click Play button to play the Memory Card! Game
+          </h3>
           {isText ? (
-            <span id="user" onClick={() => setIsText((prev) => !prev)}>
+            <span
+              className="w-full flex items-center justify-center text-lg my-5"
+              id="user"
+              onClick={() => setIsText((prev) => !prev)}
+            >
               Hello {user}
             </span>
           ) : (
@@ -73,6 +79,9 @@ const Home = () => {
                       placeholder="Enter your name"
                     />
                   </div>
+                  <span className="w-7/12 font-medium leading-6 text-center">
+                    Type your name and Press Enter to active Play! button
+                  </span>
                 </Form>
               )}
             </Formik>
