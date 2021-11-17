@@ -1,4 +1,5 @@
 import { IProps } from "../interfaces/types"
+import _ from "lodash"
 
 const shuffleImages = (arr: IProps[]) => {
   return arr.sort(() => Math.random() - 0.5)
@@ -10,4 +11,11 @@ const getUserName = () => {
   return initialValue ?? null
 }
 
-export { shuffleImages, getUserName }
+const getAllScores = () => {
+  const allUsers = JSON.parse(localStorage.getItem("users") || "[]")
+
+  const sorted = _.orderBy(allUsers, "score", "desc")
+  return sorted
+}
+
+export { shuffleImages, getUserName, getAllScores }
