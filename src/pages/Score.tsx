@@ -1,13 +1,15 @@
+import { useEffect, useState } from "react"
 import { Button } from "@material-ui/core"
-import React, { useEffect, useState } from "react"
 import { RouteComponentProps, useHistory } from "react-router"
-import _ from "lodash"
 import ScoresTable from "../components/Scores/Scores"
+import { getAllScores } from "../utils/utils"
 
 const Score = (props: RouteComponentProps) => {
   const [usersData, setUsersData] = useState<
     { id: number; user: string; date: string; score: string }[]
   >([])
+
+  const scores = getAllScores()
 
   const history = useHistory()
 
@@ -18,12 +20,10 @@ const Score = (props: RouteComponentProps) => {
   })
 
   useEffect(() => {
-    const allUsers = JSON.parse(localStorage.getItem("users") || "[]")
-
-    const sorted = _.orderBy(allUsers, "score", "desc")
-
-    setUsersData(sorted)
-  }, [])
+    if (scores) {
+      setUsersData(scores)
+    }
+  }, [scores])
 
   const resetDatas = () => {
     localStorage.removeItem("users")
