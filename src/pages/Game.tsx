@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
 import moment from "moment"
-import Loader from "react-loader-spinner"
-
 import { useHistory } from "react-router"
 import Card from "../components/Card/Card"
 import { IProps } from "../interfaces/types"
 import useFetch from "../hooks/useFetch"
 import { getUserName, shuffleImages } from "../utils/utils"
+import Error from "../components/Error/Error"
+import LoaderShow from "../components/Loader/Loader"
 
 function Game() {
   const [images, setImages] = useState<IProps[]>([])
@@ -104,19 +104,9 @@ function Game() {
 
       <div className="w-full h-full flex justify-center">
         {error ? (
-          <div className="w-full flex justify-center">
-            <h3 className="text-lg">{error}</h3>
-          </div>
+          <Error text={error} />
         ) : loading ? (
-          <div className="w-full h-full flex items-center justify-center">
-            <Loader
-              type="CradleLoader"
-              color="#00BFFF"
-              height={100}
-              width={100}
-              timeout={3000} //3 secs
-            />
-          </div>
+          <LoaderShow />
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 col-span-4 gap-4">
             {images.map((item, i) => {
