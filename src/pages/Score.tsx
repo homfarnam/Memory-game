@@ -37,7 +37,7 @@ const Score = (props: RouteComponentProps) => {
   return (
     <div>
       <div className="w-full flex justify-center my-5">
-        <h2>Scores</h2>
+        <h2 className="text-2xl font-bold">Scores</h2>
       </div>
 
       <ScoresTable usersData={usersData} />
