@@ -30,20 +30,7 @@ exports[`snapshot test snapshot test Game page 1`] = `
   <div
     className="w-full h-full flex justify-center"
   >
-    <div
-      className="w-full h-full flex items-center justify-center"
-    >
-      <Loader
-        className=""
-        color="#00BFFF"
-        height={100}
-        style={Object {}}
-        timeout={3000}
-        type="CradleLoader"
-        visible={true}
-        width={100}
-      />
-    </div>
+    <LoaderShow />
   </div>
 </main>
 `;
