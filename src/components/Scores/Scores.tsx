@@ -1,6 +1,7 @@
 import React from "react"
 
 interface ScoresProps {
+  /** All the UsersData */
   usersData:
     | {
         id: number
