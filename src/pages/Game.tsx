@@ -29,7 +29,7 @@ function Game() {
     }
   }, [data])
 
-  const matchImages = (i: number, j: number) => {
+  const matchImages = (i: number, j: number): void => {
     if (images?.[i]?.url === images?.[j]?.url) {
       setMatchedImages([...matchedImages, i, j])
       setSelectedCard([])
@@ -42,7 +42,7 @@ function Game() {
     }
   }
 
-  const whichItem = (index: number) => {
+  const whichItem = (index: number): void => {
     if (selectedCard.length === 2) {
       setSelectedCard([index])
     } else {
