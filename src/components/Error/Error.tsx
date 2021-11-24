@@ -1,6 +1,7 @@
 import React from "react"
 
 interface ErrorProps {
+  /** Pass the error text to component to show the error. */
   text: string
 }
 

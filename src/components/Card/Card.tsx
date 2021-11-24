@@ -2,13 +2,19 @@ import classnames from "classnames"
 import "./card.scss"
 
 interface CardProps {
+  /** The image data that includes {id, url and first_name} */
   item: {
     id: number
     url: string
     first_name: string
   }
+  /** Function for get the image index */
   whichItem: (index: number) => void
+
+  /** The image index number */
   index: number
+
+  /** Show the image or not*/
   visible?: boolean
 }
 
